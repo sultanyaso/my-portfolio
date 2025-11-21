@@ -1,0 +1,70 @@
+:root {
+  /* Set a dark, deep blue color palette */
+  --color-dark-primary: #0A0C16; 
+  --color-dark-secondary: #121626;
+  --color-text-light: #f0f0f0;
+  --color-text-faded: #b0b0b0;
+  
+  /* Gradient colors for headings and highlights */
+  --gradient-start: #ff00c8;
+  --gradient-end: #008cff;
+  --gradient-bg: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  
+  /* Styling for cards and buttons */
+  --shadow-glow: 0 0 10px rgba(255, 0, 200, 0.5), 0 0 20px rgba(0, 140, 255, 0.5);
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* Set modern font */
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-dark-primary);
+    color: var(--color-text-light);
+    min-height: 100vh;
+}
+
+section {
+    padding: 80px 5%; /* Consistent padding for all sections */
+}
+
+/* Base style for main headings */
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; 
+}
+
+/* Update your main CSS file (App.css or index.css) */
+
+/* Define the slow, subtle keyframe animation */
+@keyframes backgroundPan {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    /* Base color */
+    background-color: var(--color-dark-primary);
+    color: var(--color-text-light);
+    min-height: 100vh;
+    
+    /* Create the subtle moving gradient */
+    background-image: radial-gradient(circle at 10% 10%, rgba(255, 0, 200, 0.05) 0%, transparent 40%),
+                      radial-gradient(circle at 90% 90%, rgba(0, 140, 255, 0.05) 0%, transparent 40%);
+    background-size: 400% 400%; /* Make the gradient large */
+    animation: backgroundPan 60s ease infinite alternate; /* Slow movement */
+}

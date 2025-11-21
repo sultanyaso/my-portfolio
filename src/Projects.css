@@ -1,0 +1,97 @@
+/* /src/components/Projects.css */
+
+.projects-container {
+    padding: 80px 5%;
+    text-align: center;
+    background-color: var(--color-dark-secondary);
+    border-bottom: var(--border-subtle);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: var(--color-dark-primary);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: var(--border-subtle);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow);
+}
+
+.project-card h3 {
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--color-text-faded);
+    margin-bottom: 20px;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--gradient-end);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid var(--gradient-end);
+    padding-bottom: 2px;
+}
+
+.project-link:hover {
+    color: var(--gradient-start);
+    border-color: var(--gradient-start);
+}
+/* /src/components/Projects.css */
+
+/* ... (previous code) ... */
+
+.project-card {
+    background: var(--color-dark-primary);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Added ease-out */
+    border: var(--border-subtle);
+    position: relative; /* Needed for pseudo-element glow */
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* More noticeable lift */
+    /* Enhance the glow effect */
+    box-shadow: 0 0 15px rgba(255, 0, 200, 0.5), 0 0 30px rgba(0, 140, 255, 0.5);
+}
+
+/* Add a pseudo-element border glow that fades on hover */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    /* Create a glowing border effect using box-shadow */
+    box-shadow: 0 0 20px 5px var(--gradient-start), 
+                0 0 40px 10px var(--gradient-end);
+}
+
+.project-card:hover::before {
+    opacity: 0.2; /* Show the subtle glowing border on hover */
+}

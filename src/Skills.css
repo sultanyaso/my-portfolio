@@ -1,0 +1,66 @@
+/* /src/components/Skills.css */
+
+.skills-container {
+    padding: 80px 5%;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--color-dark-primary);
+    border-bottom: var(--border-subtle);
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.skill-item {
+    /* Use a dark card background */
+    background: var(--color-dark-secondary);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.3s;
+    border: var(--border-subtle);
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    /* Subtle hover effect with the gradient glow */
+    box-shadow: 0 0 5px var(--gradient-start), 0 0 5px var(--gradient-end);
+}
+
+.skills-description {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: var(--color-text-faded);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* /src/components/Skills.css */
+
+/* ... (previous code) ... */
+
+.skill-item {
+    background: var(--color-dark-secondary);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.3s;
+    border: var(--border-subtle);
+    cursor: default; /* Indicate they aren't clickable links */
+}
+
+.skill-item:hover {
+    transform: translateY(-4px); /* Noticeable lift */
+    /* Apply a distinct glow */
+    box-shadow: 0 0 8px var(--gradient-start), 0 0 15px var(--gradient-end);
+}

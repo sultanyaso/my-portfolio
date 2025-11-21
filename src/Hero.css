@@ -1,0 +1,263 @@
+/* Styling for the Hero/Header component (Header.js) */
+
+.hero-container {
+    background-color: var(--color-dark-primary);
+    padding: 0 5%;
+    min-height: 100vh;
+    border-bottom: var(--border-subtle); 
+}
+
+/* --- Navigation Bar (Navbar) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: var(--border-subtle); 
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--color-text-light);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text-faded);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    color: var(--gradient-end);
+}
+
+.language-selector {
+    font-size: 0.9rem;
+    color: var(--color-text-faded);
+    border: 1px solid var(--color-text-faded);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- Main Hero Content Area --- */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 50px; 
+    height: calc(100vh - 80px); 
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+    z-index: 10;
+}
+
+/* Gradient Text for the Main Heading (FRONTEND DEVELOPER) */
+.gradient-text {
+    font-size: 5rem; 
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; 
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text-faded);
+    margin-bottom: 40px;
+}
+
+/* --- Call-to-Action Button --- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    
+    background: rgba(255, 255, 255, 0.05); 
+    
+    border: 2px solid transparent; 
+    border-image: var(--gradient-bg);
+    border-image-slice: 1;
+    
+    color: var(--color-text-light);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    box-shadow: var(--shadow-glow);
+    background: rgba(255, 255, 255, 0.15); 
+}
+
+/* --- Image and Background --- */
+.hero-image-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-image {
+    max-width: 70%; 
+    height: auto;
+    object-fit: cover;
+    z-index: 5;
+}
+
+/* Faux background code/text overlay */
+.background-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    opacity: 0.15; 
+    color: var(--color-text-faded);
+    z-index: 1;
+}
+
+.bg-code {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    white-space: pre; 
+    transform: rotate(2deg); 
+}
+
+/* Responsive adjustments for Header... (omitted for brevity, use previous media queries) */
+
+
+/* /src/components/Hero.css (REVISED - GRADIENT TEXT ANIMATION) */
+
+/* ... (previous CSS code) ... */
+
+/* Define the text gradient animation */
+@keyframes textGradientShift {
+  0% {
+    background-position: 0% 50%; /* Start position */
+  }
+  50% {
+    background-position: 100% 50%; /* Middle position */
+  }
+  100% {
+    background-position: 0% 50%; /* End position (loops back) */
+  }
+}
+
+/* Gradient Text for the Main Heading (DEVOPS & WEB DEVELOPER) */
+.gradient-text {
+    font-size: 5rem; 
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    
+    /* Apply the gradient */
+    background: linear-gradient(
+        90deg, 
+        var(--gradient-start) 0%, 
+        var(--gradient-end) 50%, 
+        var(--gradient-start) 100%
+    );
+    /* Make the gradient wider to allow for movement */
+    background-size: 200% auto; 
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; 
+
+    /* --- NEW: Apply the animation --- */
+    animation: textGradientShift 4s ease infinite; /* 4 seconds, smooth, loops forever */
+}
+
+/* ... (rest of your CSS code, including media queries) ... */
+
+/* /src/components/Hero.css (REVISED - BUTTON BORDER ANIMATION) */
+
+/* ... (previous CSS code including @keyframes textGradientShift) ... */
+
+/* --- Call-to-Action Button --- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    
+    background: rgba(255, 255, 255, 0.05); /* Existing subtle background */
+    
+    /* --- NEW: Setup for animated border gradient --- */
+    border: 2px solid transparent; 
+    /* Use a wider background for the border-image to animate */
+    border-image: linear-gradient(
+        90deg, 
+        var(--gradient-start) 0%, 
+        var(--gradient-end) 50%, 
+        var(--gradient-start) 100%
+    );
+    border-image-slice: 1; /* Make sure the image covers the entire border */
+    /* Animate the border-image-source by changing its background-position */
+    animation: ctaBorderShift 3s linear infinite; /* Slightly faster than text */
+    background-size: 200% auto; /* Make background wider than element */
+
+    color: var(--color-text-light);
+    transition: all 0.3s ease;
+}
+
+/* Define the new keyframes for the button border animation */
+@keyframes ctaBorderShift {
+  0% {
+    background-position: 0% center; /* Start at the left */
+  }
+  100% {
+    background-position: 200% center; /* Move across and loop */
+  }
+}
+
+
+.cta-button:hover {
+    box-shadow: var(--shadow-glow);
+    background: rgba(255, 255, 255, 0.15); 
+    /* Remove animation on hover for a clearer glow, or keep it */
+    animation-play-state: paused; /* Pause animation on hover */
+}
+
+/* ... (rest of your CSS code) ... */

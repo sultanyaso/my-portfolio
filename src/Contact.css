@@ -1,0 +1,45 @@
+/* /src/components/Contact.css (REVISED WITH GRADIENT ICONS) */
+
+.contact-container {
+    padding: 80px 5%;
+    text-align: center;
+    background-color: var(--color-dark-primary);
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.contact-item:hover {
+    color: var(--gradient-end); /* Highlight text on hover */
+}
+
+.contact-icon {
+    margin-right: 15px;
+    /* Apply the gradient to the icons */
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; 
+    font-size: 1.8rem;
+    transition: transform 0.2s;
+}
+
+.contact-item:hover .contact-icon {
+    transform: scale(1.1); /* Slight icon scale on hover */
+}

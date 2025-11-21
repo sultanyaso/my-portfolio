@@ -1,0 +1,62 @@
+/* /src/About.css (REVISED - NO IMAGE) */
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  /* Dark secondary color */
+  background-color: var(--color-dark-secondary);
+  padding: 80px 5%; 
+  border-bottom: var(--border-subtle);
+}
+
+.about-card {
+  display: flex;
+  max-width: 1100px;
+  /* Slightly lighter background than the container */
+  background: var(--color-dark-secondary);
+  border-radius: 12px;
+  /* Subtle glow/shadow for dark theme */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  border: var(--border-subtle); 
+  width: 100%; /* Ensure card uses max-width */
+}
+
+/* New modifier class for the image-less layout */
+.about-card-full {
+    display: block; /* Change from flex to block for clean centering */
+}
+
+/* --- REMOVED IMAGE WRAPPER STYLES --- */
+
+.about-content {
+  /* No need for flex: 2 anymore, it takes full width of the card */
+  padding: 40px;
+  color: var(--color-text-light);
+  max-width: 900px; /* Constrain content width for better readability */
+  margin: 0 auto; /* Center the content inside the card */
+}
+
+.about-content h2 {
+  text-align: center; /* Center the heading now that it's text-only */
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-faded);
+  margin-bottom: 20px;
+}
+
+.about-content strong {
+  color: var(--color-text-light); /* Highlight strong text */
+}
+
+@media (max-width: 768px) {
+  /* Content alignment remains centered on mobile */
+  .about-content {
+    padding: 30px 20px;
+  }
+}
