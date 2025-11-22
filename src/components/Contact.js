@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaEnvelope, FaPhone, FaGithub } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaGithub, FaLinkedin } from 'react-icons/fa';
 import '../Contact.css';
 
 const Contact = () => {
@@ -36,6 +36,18 @@ const Contact = () => {
           <a href="tel:+923485185767" className="contact-item pop" style={{ animationDelay: "0.4s" }}>
             <FaPhone className="contact-icon" />
             <span className="contact-text">+92 348 5185767</span>
+          </a>
+
+          {/* LINKEDIN */}
+          <a 
+            href="https://www.linkedin.com/in/yasir-sultan-931758254?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-item pop"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <FaLinkedin className="contact-icon" />
+            <span className="contact-text">linkedin.com/sultanyaso</span>
           </a>
 
         </div>
