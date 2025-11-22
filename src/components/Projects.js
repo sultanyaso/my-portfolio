@@ -5,7 +5,10 @@ import '../Projects.css'; // Add import for new CSS
 const Projects = () => {
   const projects = [
     { title: 'Simple Notes App', description: 'Full-stack MERN app with CRUD', link: 'https://github.com/yourusername/simple-notes' },
-    { title: 'Chess AI', description: 'Python chess game with Minimax AI', link: 'https://github.com/yourusername/chess-ai' }
+    { title: 'dodge', description: 'A simple Python game using Pygame', link: 'https://github.com/sultanyaso/dodge-the-blocks-game.git' },
+    {title: 'Weather-Web-App', description: 'A simple weather app built with HTML, CSS, and JavaScript.', link: 'https://github.com/sultanyaso/Weather_Web_App.git'},
+    {title: 'github-profile-finder',description: 'This GitHub Profile Finder is a React-based web application.',link: 'https://github.com/sultanyaso/github-profile-finder.git'},
+    {title: 'NodeVault',description: 'A Containerized CLI Record Management System.',link: 'https://github.com/sultanyaso/DevOps_Part2.git'}
   ];
 
   return (

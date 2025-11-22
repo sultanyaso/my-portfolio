@@ -1,45 +1,190 @@
-/* /src/components/Contact.css (REVISED WITH GRADIENT ICONS) */
-
+/* SECTION CONTAINER – AUTO HEIGHT ADJUSTMENT */
 .contact-container {
-    padding: 80px 5%;
-    text-align: center;
-    background-color: var(--color-dark-primary);
+  padding: 60px 5%;
+  text-align: center;
+  background-color: var(--color-dark-primary);
+  min-height: auto;      /* Reduced height */
 }
 
+/* HEADING */
+h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  background: var(--gradient-bg);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* CONTACT CARD */
+.contact-card {
+  max-width: 550px;
+  margin: auto;
+  padding: 30px;
+  background-color: var(--color-dark-secondary);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* TEXT */
+.contact-message {
+  font-size: 1.05rem;
+  color: var(--color-text-faded);
+  margin-bottom: 25px;
+}
+
+/* LIST */
 .contact-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    max-width: 500px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .contact-item {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--color-text-light);
-    font-size: 1.2rem;
-    transition: color 0.3s;
-}
-
-.contact-item:hover {
-    color: var(--gradient-end); /* Highlight text on hover */
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  color: var(--color-text-light);
 }
 
 .contact-icon {
-    margin-right: 15px;
-    /* Apply the gradient to the icons */
-    background: var(--gradient-bg);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent; 
-    font-size: 1.8rem;
-    transition: transform 0.2s;
+  font-size: 1.7rem;
+  margin-right: 15px;
+  background: var(--gradient-bg);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+/* ANIMATIONS */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.fade-in-delay {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.9s ease forwards;
+}
+
+.pop {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: popIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 22px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .contact-item {
+    font-size: 1rem;
+  }
+  .contact-icon {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* ---------- Animations ---------- */
+
+/* Fade in heading */
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+/* Container slide up */
+.slide-up {
+    animation: slideUp 0.9s ease forwards;
+    opacity: 0;
+}
+
+/* Contact-item pop animation (staggered) */
+.pop {
+    animation: popEntry 0.8s ease forwards;
+    opacity: 0;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popEntry {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------- Hover + Click Animations ---------- */
+
+.contact-item {
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.3s ease;
+    padding: 15px 18px;
+    border-radius: 10px;
+}
+
+.contact-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateX(6px) scale(1.03);
+    box-shadow: 0 4px 15px rgba(255, 0, 150, 0.3);
+}
+
+.contact-item:active {
+    transform: scale(0.95);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Icon hover effect */
 .contact-item:hover .contact-icon {
-    transform: scale(1.1); /* Slight icon scale on hover */
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 6px rgba(255, 0, 200, 0.8));
+}
+
+/* Icon transitions */
+.contact-icon {
+    transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+    .contact-item { padding: 12px; }
+    .contact-icon { font-size: 1.5rem; }
 }

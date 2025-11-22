@@ -1,29 +1,44 @@
-// /src/components/Contact.js (REVISED WITH ICONS)
-
 import React from 'react';
-// Ensure you have react-icons installed: npm install react-icons
 import { FaEnvelope, FaPhone, FaGithub } from 'react-icons/fa';
-import '../Contact.css'; // Add import for new CSS
+import '../Contact.css';
 
 const Contact = () => {
   return (
     <section className="contact-container" id="contact">
-      <h2>Get In Touch</h2>
-      <div className="contact-list">
-        <a href="mailto:sultanyasir990@gmail.com" className="contact-item">
-          <FaEnvelope className="contact-icon" />
-          <span>sultanyasir990@gmail.com</span>
-        </a>
+      <h2 className="fade-in">Contact Me</h2>
 
-        <a href="https://github.com/sultanyaso" target="_blank" rel="noopener noreferrer" className="contact-item">
-          <FaGithub className="contact-icon" />
-          <span>github.com/sultanyaso</span>
-        </a>
+      <div className="contact-card slide-up">
+        <p className="contact-message fade-in-delay">
+          Feel free to reach out for collaboration, project discussions, or opportunities.
+        </p>
 
-        <a href="tel:+923485185767" className="contact-item">
-          <FaPhone className="contact-icon" />
-          <span>+92 348 5185767</span>
-        </a>
+        <div className="contact-list">
+
+          {/* EMAIL */}
+          <a href="mailto:sultanyasir990@gmail.com" className="contact-item pop">
+            <FaEnvelope className="contact-icon" />
+            <span className="contact-text">sultanyasir990@gmail.com</span>
+          </a>
+
+          {/* GITHUB */}
+          <a 
+            href="https://github.com/sultanyaso" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-item pop"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <FaGithub className="contact-icon" />
+            <span className="contact-text">github.com/sultanyaso</span>
+          </a>
+
+          {/* PHONE */}
+          <a href="tel:+923485185767" className="contact-item pop" style={{ animationDelay: "0.4s" }}>
+            <FaPhone className="contact-icon" />
+            <span className="contact-text">+92 348 5185767</span>
+          </a>
+
+        </div>
       </div>
     </section>
   );

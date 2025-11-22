@@ -1,9 +1,12 @@
-// /src/components/Header.js
+// /src/components/Header.js (Final Integrated Code)
+
 import React from 'react';
-// Assuming you create a new Hero.css for the styling
+// Import the styling file (adjust path if your Hero.css is elsewhere)
 import '../../src/Hero.css'; 
 // Import your profile picture
 import profilePic from "./me2.jpeg"; 
+// Import icon for the scroll indicator
+import { FaChevronDown } from 'react-icons/fa'; 
 
 const Header = () => {
   return (
@@ -36,18 +39,26 @@ const Header = () => {
           </a>
         </div>
         
-        <div className="hero-image-wrapper">
+        {/* Wrapper for Image + Aesthetic Code Background */}
+        <div className="hero-image-with-bg">
           <img src={profilePic} alt="Yasir Sultan" className="hero-image" />
+          
+          {/* Faux background code with syntax highlighting structure */}
           <div className="background-overlay">
-             <p className="bg-code">
-                const scale = 'k8s'; <br/>
-                $ docker build <br/>
-                .about .content <br/>
-                @media screen
-             </p>
+             <pre className="bg-code">
+                <span className="keyword">const</span> <span className="variable">scale</span> <span className="operator">=</span> <span className="string">'k8s'</span>; <br/>
+                <span className="comment">$ docker build</span> <br/>
+                <span className="selector">.about</span> <span className="property">.content</span> <br/>
+                <span className="at-rule">@media</span> <span className="keyword">screen</span>
+             </pre>
           </div>
         </div>
       </div>
+      
+      {/* Scroll Down Indicator with Animation */}
+      <a href="#about" className="scroll-indicator" aria-label="Scroll down to About section">
+        <FaChevronDown /> 
+      </a>
     </section>
   );
 };
