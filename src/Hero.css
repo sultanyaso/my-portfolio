@@ -1,10 +1,46 @@
 /* Styling for the Hero/Header component (Header.js) */
 
+/* --- GLOBAL ANIMATIONS & BASE/ROOT --- */
+@keyframes textGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ctaBorderShift {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes codeFadeIn {
+    0% { opacity: 0; transform: translateY(20px) rotate(2deg); }
+    100% { opacity: 0.15; transform: translateY(0) rotate(2deg); }
+}
+
+:root {
+  --color-dark-primary: #0A0C16; 
+  --color-dark-secondary: #121626;
+  --color-text-light: #f0f0f0;
+  --color-text-faded: #b0b0b0;
+  --gradient-start: #ff00c8;
+  --gradient-end: #008cff;
+  --gradient-bg: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  --shadow-glow: 0 0 10px rgba(255, 0, 200, 0.5), 0 0 20px rgba(0, 140, 255, 0.5);
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .hero-container {
     background-color: var(--color-dark-primary);
     padding: 0 5%;
     min-height: 100vh;
     border-bottom: var(--border-subtle); 
+    position: relative;
 }
 
 /* --- Navigation Bar (Navbar) --- */
@@ -14,6 +50,7 @@
     align-items: center;
     padding: 20px 0;
     border-bottom: var(--border-subtle); 
+    color: var(--color-text-light);
 }
 
 .logo {
@@ -53,7 +90,7 @@
     cursor: pointer;
 }
 
-/* --- Main Hero Content Area --- */
+/* --- Main Hero Content Area (DESKTOP LAYOUT) --- */
 .hero-content {
     display: flex;
     align-items: center;
@@ -69,7 +106,7 @@
     z-index: 10;
 }
 
-/* Gradient Text for the Main Heading (FRONTEND DEVELOPER) */
+/* Gradient Text for the Main Heading (DEVOPS & WEB DEVELOPER) */
 .gradient-text {
     font-size: 5rem; 
     font-weight: 900;
@@ -77,11 +114,20 @@
     text-transform: uppercase;
     margin-bottom: 20px;
     
-    background: var(--gradient-bg);
+    background: linear-gradient(
+        90deg, 
+        var(--gradient-start) 0%, 
+        var(--gradient-end) 50%, 
+        var(--gradient-start) 100%
+    );
+    background-size: 200% auto; 
+    
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent; 
+
+    animation: textGradientShift 4s ease infinite; 
 }
 
 .subtitle {
@@ -104,351 +150,27 @@
     background: rgba(255, 255, 255, 0.05); 
     
     border: 2px solid transparent; 
-    border-image: var(--gradient-bg);
-    border-image-slice: 1;
-    
-    color: var(--color-text-light);
-    transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-    box-shadow: var(--shadow-glow);
-    background: rgba(255, 255, 255, 0.15); 
-}
-
-/* --- Image and Background --- */
-.hero-image-wrapper {
-    position: relative;
-    flex: 1;
-    max-width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-}
-
-.hero-image {
-    max-width: 70%; 
-    height: auto;
-    object-fit: cover;
-    z-index: 5;
-}
-
-/* Faux background code/text overlay */
-.background-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    pointer-events: none; 
-    opacity: 0.15; 
-    color: var(--color-text-faded);
-    z-index: 1;
-}
-
-.bg-code {
-    position: absolute;
-    top: 20%;
-    right: 10%;
-    font-family: 'Courier New', monospace;
-    font-size: 1.2rem;
-    line-height: 1.5;
-    white-space: pre; 
-    transform: rotate(2deg); 
-}
-
-/* Responsive adjustments for Header... (omitted for brevity, use previous media queries) */
-
-
-/* /src/components/Hero.css (REVISED - GRADIENT TEXT ANIMATION) */
-
-/* ... (previous CSS code) ... */
-
-/* Define the text gradient animation */
-@keyframes textGradientShift {
-  0% {
-    background-position: 0% 50%; /* Start position */
-  }
-  50% {
-    background-position: 100% 50%; /* Middle position */
-  }
-  100% {
-    background-position: 0% 50%; /* End position (loops back) */
-  }
-}
-
-/* Gradient Text for the Main Heading (DEVOPS & WEB DEVELOPER) */
-.gradient-text {
-    font-size: 5rem; 
-    font-weight: 900;
-    line-height: 1.1;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    
-    /* Apply the gradient */
-    background: linear-gradient(
-        90deg, 
-        var(--gradient-start) 0%, 
-        var(--gradient-end) 50%, 
-        var(--gradient-start) 100%
-    );
-    /* Make the gradient wider to allow for movement */
-    background-size: 200% auto; 
-    
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent; 
-
-    /* --- NEW: Apply the animation --- */
-    animation: textGradientShift 4s ease infinite; /* 4 seconds, smooth, loops forever */
-}
-
-/* ... (rest of your CSS code, including media queries) ... */
-
-/* /src/components/Hero.css (REVISED - BUTTON BORDER ANIMATION) */
-
-/* ... (previous CSS code including @keyframes textGradientShift) ... */
-
-/* --- Call-to-Action Button --- */
-.cta-button {
-    display: inline-block;
-    padding: 12px 30px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    
-    background: rgba(255, 255, 255, 0.05); /* Existing subtle background */
-    
-    /* --- NEW: Setup for animated border gradient --- */
-    border: 2px solid transparent; 
-    /* Use a wider background for the border-image to animate */
     border-image: linear-gradient(
         90deg, 
         var(--gradient-start) 0%, 
         var(--gradient-end) 50%, 
         var(--gradient-start) 100%
     );
-    border-image-slice: 1; /* Make sure the image covers the entire border */
-    /* Animate the border-image-source by changing its background-position */
-    animation: ctaBorderShift 3s linear infinite; /* Slightly faster than text */
-    background-size: 200% auto; /* Make background wider than element */
+    border-image-slice: 1;
+    animation: ctaBorderShift 3s linear infinite;
+    background-size: 200% auto;
 
     color: var(--color-text-light);
     transition: all 0.3s ease;
 }
 
-/* Define the new keyframes for the button border animation */
-@keyframes ctaBorderShift {
-  0% {
-    background-position: 0% center; /* Start at the left */
-  }
-  100% {
-    background-position: 200% center; /* Move across and loop */
-  }
-}
-
-
 .cta-button:hover {
     box-shadow: var(--shadow-glow);
     background: rgba(255, 255, 255, 0.15); 
-    /* Remove animation on hover for a clearer glow, or keep it */
-    animation-play-state: paused; /* Pause animation on hover */
+    animation-play-state: paused; 
 }
 
-/* ... (rest of your CSS code) ... */
-
-
-/* /src/components/Hero.css */
-
-/* Define the animation for the scroll indicator */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
-
-/* Add a style for the scroll indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    font-size: 1.5rem;
-    color: var(--gradient-start); /* Use the primary gradient color */
-    animation: bounce 2s infinite;
-    cursor: pointer;
-}
-
-/* /src/Hero.css (Revised with Aesthetic bg-code) */
-
-/* ... (previous @keyframes and :root variables) ... */
-
-/* --- BACKGROUND CODE OVERLAY STYLING --- */
-.background-overlay {
-    position: absolute;
-    top: 0; 
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; 
-    opacity: 0.15; /* Slightly more visible now with better styling */
-    color: var(--color-text-faded);
-    z-index: 1; 
-    /* Add a subtle dark gradient to the overlay itself for depth */
-    background: radial-gradient(circle at 60% 40%, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
-}
-
-.bg-code {
-    position: absolute;
-    top: 20%;
-    right: 10%; 
-    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace; /* Professional coding fonts */
-    font-size: 1.1rem; /* Slightly smaller for realism */
-    line-height: 1.8; /* More spacing */
-    white-space: pre-wrap; /* Allows line breaks while preserving whitespace */
-    transform: rotate(2deg); /* Keeps the subtle tilt */
-    filter: blur(0.5px); /* Soft blur for a glowing, screen-like effect */
-    text-shadow: 0 0 5px rgba(0, 140, 255, 0.3), 0 0 10px rgba(255, 0, 200, 0.2); /* Subtle glow */
-    color: var(--color-text-faded); /* Base color for unhighlighted parts */
-
-    /* Animation for the code itself (optional but cool) */
-    animation: codeFadeIn 5s ease-out forwards; /* Fade in slowly */
-}
-
-/* Specific styling for syntax highlighting effect */
-.bg-code .keyword {
-    color: var(--gradient-start); /* Magenta-like for keywords */
-}
-
-.bg-code .variable {
-    color: var(--gradient-end); /* Blue-like for variables */
-}
-
-.bg-code .operator {
-    color: var(--color-text-light); /* White/light gray for operators */
-}
-
-.bg-code .string {
-    color: #e6db74; /* Classic yellow for strings */
-}
-
-.bg-code .comment {
-    color: #888; /* Gray for comments/commands */
-    font-style: italic;
-}
-
-.bg-code .selector {
-    color: #a6e22e; /* Green for CSS selectors */
-}
-
-.bg-code .property {
-    color: #fd971f; /* Orange for CSS properties */
-}
-
-.bg-code .at-rule {
-    color: #66d9ef; /* Cyan for @rules */
-}
-
-/* New animation for code fade-in */
-@keyframes codeFadeIn {
-    0% { opacity: 0; transform: translateY(20px) rotate(2deg); }
-    100% { opacity: 0.15; transform: translateY(0) rotate(2deg); } /* Match base opacity */
-}
-
-
-/* --- Responsive Adjustments (ensure media queries are updated with new element names) --- */
-@media (max-width: 768px) {
-    /* ... (existing media queries) ... */
-    .bg-code {
-        font-size: 0.9rem; /* Smaller on mobile */
-        right: 5%; /* Adjust position */
-        top: 15%;
-    }
-}
-
-/* src/Hero.css (FINAL - WITH ROBUST MOBILE SUPPORT) */
-
-/* --- GLOBAL ANIMATIONS & BASE/ROOT (keep these) --- */
-@keyframes textGradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes borderFlow {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-@keyframes codeFadeIn {
-    0% { opacity: 0; transform: translateY(20px) rotate(2deg); }
-    100% { opacity: 0.15; transform: translateY(0) rotate(2deg); }
-}
-
-:root {
-  --color-dark-primary: #0A0C16; 
-  --color-dark-secondary: #121626;
-  --color-text-light: #f0f0f0;
-  --color-text-faded: #b0b0b0;
-  --gradient-start: #ff00c8;
-  --gradient-end: #008cff;
-  --gradient-bg: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-  --shadow-glow: 0 0 10px rgba(255, 0, 200, 0.5), 0 0 20px rgba(0, 140, 255, 0.5);
-  --border-subtle: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* --- Hero Container and Navbar (keep these) --- */
-.hero-container {
-    background-color: var(--color-dark-primary);
-    padding: 0 5%;
-    min-height: 100vh;
-    border-bottom: var(--border-subtle); 
-    position: relative;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    color: var(--color-text-light);
-}
-/* ... (Rest of Navbar styles) ... */
-
-/* --- Main Hero Content Area (DESKTOP LAYOUT) --- */
-.hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 50px;
-    padding-bottom: 50px; 
-    height: calc(100vh - 80px); /* Fill remaining viewport height on desktop */
-}
-
-.hero-text {
-    flex: 1;
-    max-width: 50%;
-    z-index: 10;
-}
-
+/* --- Image Container --- */
 .hero-image-with-bg { 
     position: relative; 
     flex: 1;
@@ -459,13 +181,104 @@
     height: 100%;
     overflow: hidden; 
 }
-/* ... (Rest of Hero/Image/Code styles) ... */
 
+/* --- HERO IMAGE STYLES (RESPONSIVE BASE) --- */
+.hero-image {
+  /* Flexible sizing for mobile-first approach */
+  width: 80%;
+  height: auto;
+  aspect-ratio: 1 / 1; /* Guarantees a perfect circle */
+  max-width: 70%; /* Base max-width for the non-offset image */
+
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #ffffff30;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+  transition: 0.3s ease-in-out;
+  z-index: 5;
+  
+  /* CRUCIAL: Reset fixed margins that break mobile layout */
+  margin-top: 0; 
+  margin-left: 0;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 35px rgba(0, 153, 255, 0.5);
+}
+
+/* Faux background code/text overlay */
+.background-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    opacity: 0.15; 
+    color: var(--color-text-faded);
+    z-index: 1; 
+    background: radial-gradient(circle at 60% 40%, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
+}
+
+.bg-code {
+    position: absolute;
+    top: 20%;
+    right: 10%; 
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace; 
+    font-size: 1.1rem; 
+    line-height: 1.8; 
+    white-space: pre-wrap; 
+    transform: rotate(2deg); 
+    filter: blur(0.5px); 
+    text-shadow: 0 0 5px rgba(0, 140, 255, 0.3), 0 0 10px rgba(255, 0, 200, 0.2); 
+    color: var(--color-text-faded); 
+    animation: codeFadeIn 5s ease-out forwards;
+}
+
+/* Specific styling for syntax highlighting effect */
+.bg-code .keyword { color: var(--gradient-start); }
+.bg-code .variable { color: var(--gradient-end); }
+.bg-code .operator { color: var(--color-text-light); }
+.bg-code .string { color: #e6db74; }
+.bg-code .comment { color: #888; font-style: italic; }
+.bg-code .selector { color: #a6e22e; }
+.bg-code .property { color: #fd971f; }
+.bg-code .at-rule { color: #66d9ef; }
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    font-size: 1.5rem;
+    color: var(--gradient-start);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
 
 /* ------------------------------------------------ */
+/* --- RESPONSIVENESS (MEDIA QUERIES) --- */
+/* ------------------------------------------------ */
+
+/* --- Desktop/Large Screen Adjustments (Applies from 769px and up) --- */
+@media (min-width: 769px) {
+  
+  /* Image size and positioning is ONLY applied on desktop */
+  .hero-image {
+    width: 420px;
+    height: 420px; 
+    margin-top: -70px;   /* Move image up */
+    margin-left: -150px; /* Move image left */
+    max-width: none; /* Override base max-width */
+  }
+}
+
+
 /* --- MOBILE RESPONSIVENESS FIXES (max-width: 768px) --- */
-/* ------------------------------------------------ */
-
 @media (max-width: 768px) {
     
     /* NAV BAR COLLAPSE */
@@ -476,21 +289,19 @@
     }
     
     .nav-links {
-        display: none; /* Hide navigation links for simplicity on mobile */
+        display: none; 
     }
     
     .logo, .language-selector {
-        flex-basis: 100%; /* Ensure logo and selector take full width if needed */
+        flex-basis: 100%; 
         text-align: center;
         padding: 5px 0;
     }
 
-    /* HERO CONTENT LAYOUT FIX */
+    /* HERO CONTENT LAYOUT FIX: Puts IMAGE on top and TEXT below */
     .hero-content {
-        /* FIX: Stack items vertically, reversing the order so the IMAGE is at the top */
         flex-direction: column-reverse; 
         text-align: center;
-        /* FIX: Allow content to dictate height, not viewport */
         height: auto;
         min-height: 90vh; 
         padding-top: 20px;
@@ -498,46 +309,45 @@
     
     /* TEXT AND IMAGE SIZING */
     .hero-text, .hero-image-with-bg { 
-        /* FIX: Allow both items to use full width */
         max-width: 100%;
         flex-basis: 100%;
-        margin-bottom: 30px; /* Add spacing between image and text */
+        margin-bottom: 30px; 
         padding: 0 10px;
     }
     
     /* TEXT STYLES */
     .gradient-text {
-        font-size: 2.8rem; /* Smaller font for main heading */
+        font-size: 2.8rem; 
         line-height: 1.2;
     }
     
     .subtitle {
-        font-size: 1rem; /* Smaller subtitle font */
+        font-size: 1rem; 
         margin-bottom: 20px;
     }
     
     /* IMAGE CONTAINER SIZE */
     .hero-image-with-bg {
-        /* Define a specific height for the image area on mobile */
         height: 350px; 
         justify-content: center; 
         overflow: hidden;
     }
     
+    /* Image sizing is handled by the base style and centered by the container */
     .hero-image {
-        max-width: 80%; /* Ensure the image fits well */
+        width: 80%; /* Takes 80% of the 350px container */
     }
 
     /* BACKGROUND CODE */
     .bg-code {
-        font-size: 0.8rem; /* Very small code background */
+        font-size: 0.8rem; 
         right: 0;
-        top: 50px; /* Position it high up, behind the image */
-        transform: rotate(0deg); /* Remove the tilt to save space */
+        top: 50px; 
+        transform: rotate(0deg); 
     }
     
     /* SCROLL INDICATOR */
     .scroll-indicator {
-        bottom: 10px; /* Keep it visible at the bottom */
+        bottom: 10px; 
     }
 }
