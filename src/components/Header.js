@@ -4,7 +4,7 @@ import React from 'react';
 // Import the styling file (adjust path if your Hero.css is elsewhere)
 import '../../src/Hero.css'; 
 // Import your profile picture
-import profilePic from "./me2.jpeg"; 
+import profilePic from "./yasirSultan.png"; 
 // Import icon for the scroll indicator
 import { FaChevronDown } from 'react-icons/fa'; 
 
