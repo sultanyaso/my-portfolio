@@ -8,7 +8,9 @@ const Projects = () => {
     { title: 'dodge', description: 'A simple Python game using Pygame', link: 'https://github.com/sultanyaso/dodge-the-blocks-game.git' },
     {title: 'Weather-Web-App', description: 'A simple weather app built with HTML, CSS, and JavaScript.', link: 'https://github.com/sultanyaso/Weather_Web_App.git'},
     {title: 'github-profile-finder',description: 'This GitHub Profile Finder is a React-based web application.',link: 'https://github.com/sultanyaso/github-profile-finder.git'},
-    {title: 'NodeVault',description: 'A Containerized CLI Record Management System.',link: 'https://github.com/sultanyaso/DevOps_Part2.git'}
+    {title: 'NodeVault',description: 'A Containerized CLI Record Management System.',link: 'https://github.com/sultanyaso/DevOps_Part2.git'},
+    {title: 'Shortest Path Finder (Pakistan)',description: 'A real-world route planning application that uses Dijkstra’s Algorithm and OpenStreetMap road data to find and visualize the shortest paths between Pakistani cities.
+',link: 'https://github.com/sultanyaso/Design-and-Algorithm-Project.git'}
   ];
 
   return (
