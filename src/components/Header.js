@@ -49,20 +49,29 @@ useEffect(() => {
   return (
     <section className="hero-container" id="home">
 
-      {/* 🌫️ Smokey Gradient Background */}
+      {/* Smokey Gradient Background */}
       <div className="smoke-layer"></div>
 
       {/* --- Navigation Bar --- */}
-      <nav className="navbar">
-        <div className="logo">YASIR SULTAN</div>
-        <ul className="nav-links">
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#skills">SKILLS</a></li>
-          <li><a href="#projects">PORTFOLIO</a></li>
-          <li><a href="#contact">CONTACT</a></li>
-        </ul>
-        <div className="language-selector">ENG | UR</div>
-      </nav>
+     <nav className="navbar">
+  <div className="logo">YASIR SULTAN</div>
+
+  <ul className="nav-links">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#skills">SKILLS</a></li>
+    <li><a href="#projects">PORTFOLIO</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+
+  <a
+    href="/Yasir_Sultan_CV.pdf"
+    download
+    className="download-cv"
+  >
+    DOWNLOAD CV
+  </a>
+</nav>
+
 
       {/* --- Hero Content --- */}
       <div className="hero-content">
