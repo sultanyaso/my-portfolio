@@ -12,7 +12,8 @@ const Skills = () => {
     'Docker',
     'Kubernetes',
     'Git',
-    'GitHub'
+    'GitHub',
+    'Jenkins'
   ];
 
   return (
