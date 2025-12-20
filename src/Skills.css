@@ -1,5 +1,4 @@
-/* /src/components/Skills.css */
-
+/* Existing styles remain */
 .skills-container {
     padding: 80px 5%;
     text-align: center;
@@ -7,33 +6,6 @@
     margin: 0 auto;
     background-color: var(--color-dark-primary);
     border-bottom: var(--border-subtle);
-}
-
-.skills-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-.skill-item {
-    /* Use a dark card background */
-    background: var(--color-dark-secondary);
-    color: var(--color-text-light);
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: transform 0.2s, box-shadow 0.3s;
-    border: var(--border-subtle);
-}
-
-.skill-item:hover {
-    transform: translateY(-3px);
-    /* Subtle hover effect with the gradient glow */
-    box-shadow: 0 0 5px var(--gradient-start), 0 0 5px var(--gradient-end);
 }
 
 .skills-description {
@@ -44,9 +16,39 @@
     margin: 0 auto;
 }
 
-/* /src/components/Skills.css */
+/* Add container for sections */
+.skills-sections {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px; /* space between Languages and Tools section */
+    margin-bottom: 40px;
+}
 
-/* ... (previous code) ... */
+.skills-section {
+    flex: 1 1 250px; /* responsive width */
+    background-color: var(--color-dark-secondary);
+    padding: 20px;
+    border-radius: 12px;
+    border: var(--border-subtle);
+}
+
+.skills-section h3 {
+    margin-bottom: 15px;
+    color: var(--color-text-light);
+    font-size: 1.3rem;
+}
+
+/* Keep your existing skill-item styles */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 0;
+}
 
 .skill-item {
     background: var(--color-dark-secondary);
@@ -56,11 +58,10 @@
     font-weight: 600;
     transition: transform 0.2s, box-shadow 0.3s;
     border: var(--border-subtle);
-    cursor: default; /* Indicate they aren't clickable links */
+    cursor: default;
 }
 
 .skill-item:hover {
-    transform: translateY(-4px); /* Noticeable lift */
-    /* Apply a distinct glow */
+    transform: translateY(-4px);
     box-shadow: 0 0 8px var(--gradient-start), 0 0 15px var(--gradient-end);
 }

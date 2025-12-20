@@ -62,9 +62,9 @@ body {
     color: var(--color-text-light);
     min-height: 100vh;
     
-    /* Create the subtle moving gradient */
+    /* Create the subtle moving gradient 
     background-image: radial-gradient(circle at 10% 10%, rgba(255, 0, 200, 0.05) 0%, transparent 40%),
                       radial-gradient(circle at 90% 90%, rgba(0, 140, 255, 0.05) 0%, transparent 40%);
-    background-size: 400% 400%; /* Make the gradient large */
+    background-size: 400% 400%; /* Make the gradient large 
     animation: backgroundPan 60s ease infinite alternate; /* Slow movement */
 }
