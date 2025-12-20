@@ -484,3 +484,72 @@
   z-index: 9999;
 }
 
+
+/*Keyword Colors (DevOps style)*/
+.highlight-web {
+  color: #38bdf8; /* light blue */
+  font-weight: 500;
+}
+
+.highlight-devops {
+  color: #a855f7; /* purple */
+  font-weight: 600;
+}
+
+.highlight-arch {
+  color: #22c55e; /* green */
+}
+
+.highlight-auto {
+  color: #facc15; /* yellow */
+}
+
+.highlight-cicd {
+  color: #fb7185; /* pink/red */
+  font-weight: 500;
+}
+
+.highlight-cloud {
+  color: #60a5fa; /* cloud blue */
+}
+
+
+
+.typewriter {
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typeLine 5s steps(140, end) forwards;
+}
+
+/* Blinking cursor */
+.typewriter::after {
+  content: "▋";
+  margin-left: 6px;
+  animation: cursorBlink 1s infinite;
+  color: var(--gradient-end);
+}
+
+/* Typing animation */
+@keyframes typeLine {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+/* Cursor blink */
+@keyframes cursorBlink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+@media (max-width: 768px) {
+  .typewriter {
+    max-width: 100%;
+    white-space: normal;
+    animation: none;
+  }
+
+  .typewriter::after {
+    display: none;
+  }
+}
