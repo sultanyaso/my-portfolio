@@ -553,3 +553,85 @@
     display: none;
   }
 }
+
+
+/* --- CV DROPDOWN STYLING --- */
+
+.cv-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Base button style (inherits from your existing download-cv class) */
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    background: transparent;
+    font-family: inherit; /* Ensures it matches the rest of the nav */
+}
+
+.chevron {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.chevron.rotate {
+    transform: rotate(180deg);
+}
+
+.cv-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px); /* Spacing below the button */
+    right: 0;
+    background-color: var(--color-dark-secondary);
+    border: var(--border-subtle);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    /* Optional: subtle entry animation */
+    animation: dropdownFadeIn 0.2s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cv-dropdown-menu a {
+    padding: 12px 20px;
+    color: var(--color-text-faded);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cv-dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.cv-dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--gradient-end);
+    padding-left: 25px; /* Subtle slide effect on hover */
+}
+
+/* Ensure mobile compatibility */
+@media (max-width: 768px) {
+    .cv-dropdown-menu {
+        right: 50%;
+        transform: translateX(50%); /* Center dropdown on mobile */
+    }
+    
+    @keyframes dropdownFadeIn {
+        from { opacity: 0; transform: translate(50%, -10px); }
+        to { opacity: 1; transform: translate(50%, 0); }
+    }
+}
