@@ -1,11 +1,24 @@
 // /src/components/Header.js
 
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 import "../../src/Hero.css";
 import profilePic from "./yasirSultan.png";
 import { FaChevronDown } from "react-icons/fa";
 
 const Header = () => {
+  const [isCvOpen, setIsCvOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // --- Close dropdown when clicking outside ---
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsCvOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // --- Ribbon Wave Trail Effect ---
   useEffect(() => {
@@ -35,7 +48,7 @@ const Header = () => {
     return () => window.removeEventListener("mousemove", smoothFollow);
   }, []);
 
-  // --- Typewriter Effect (Memoized subtitleParts) ---
+  // --- Typewriter Effect ---
   const subtitleParts = useMemo(() => [
     { text: "I am Yasir — a software engineering student specializing in ", color: "" },
     { text: "Web", color: "highlight-web" },
@@ -60,10 +73,9 @@ const Header = () => {
   const [writingForward, setWritingForward] = useState(true);
 
   useEffect(() => {
-    const typingSpeed = 100; // slower typing speed
+    const typingSpeed = 100;
     const timeout = setTimeout(() => {
       let currentLength = 0;
-
       const newParts = subtitleParts.map(p => {
         if (writingForward) {
           if (currentLength >= charIndex + 1) return { ...p, text: "" };
@@ -93,7 +105,7 @@ const Header = () => {
       if (writingForward) {
         if (charIndex + 1 >= flatText.length) {
           setWritingForward(false);
-          setTimeout(() => setCharIndex(charIndex), 1000); // pause at full text
+          setTimeout(() => setCharIndex(charIndex), 1000);
         } else {
           setCharIndex(charIndex + 1);
         }
@@ -122,9 +134,39 @@ const Header = () => {
           <li><a href="#projects">PORTFOLIO</a></li>
           <li><a href="#contact">CONTACT</a></li>
         </ul>
-        <a href="CV_Yasir.pdf" download= "Yasir_Sultan_CV.pdf" className="download-cv">
-          DOWNLOAD CV
-        </a>
+
+        {/* --- Dropdown CV Section --- */}
+       <div className="cv-dropdown-container" ref={dropdownRef}>
+  <button 
+    className="download-cv dropdown-btn" 
+    onClick={() => setIsCvOpen(!isCvOpen)}
+  >
+    MY CV <FaChevronDown className={`chevron ${isCvOpen ? 'rotate' : ''}`} />
+  </button>
+
+  {isCvOpen && (
+    <div className="cv-dropdown-menu">
+      {/* View Option - Fixed Path */}
+      <a 
+        href={`${process.env.PUBLIC_URL}/CV_Yasir.pdf`} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        onClick={() => setIsCvOpen(false)}
+      >
+        View CV
+      </a>
+
+      {/* Download Option - Fixed Path */}
+      <a 
+        href={`${process.env.PUBLIC_URL}/CV_Yasir.pdf`} 
+        download="Yasir_Sultan_CV.pdf" 
+        onClick={() => setIsCvOpen(false)}
+      >
+        Download CV
+      </a>
+    </div>
+  )}
+</div>
       </nav>
 
       {/* --- Hero Content --- */}
