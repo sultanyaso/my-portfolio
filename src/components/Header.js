@@ -148,7 +148,7 @@ const Header = () => {
     <div className="cv-dropdown-menu">
       {/* View Option - Fixed Path */}
       <a 
-        href={`${process.env.PUBLIC_URL}/CV_Yasir.pdf`} 
+        href={`${process.env.PUBLIC_URL}/YASIR SULTAN - Resume.pdf`} 
         target="_blank" 
         rel="noopener noreferrer" 
         onClick={() => setIsCvOpen(false)}
@@ -158,8 +158,8 @@ const Header = () => {
 
       {/* Download Option - Fixed Path */}
       <a 
-        href={`${process.env.PUBLIC_URL}/CV_Yasir.pdf`} 
-        download="Yasir_Sultan_CV.pdf" 
+        href={`${process.env.PUBLIC_URL}/YASIR SULTAN - Resume.pdf`} 
+        download="YASIR SULTAN - Resume.pdf" 
         onClick={() => setIsCvOpen(false)}
       >
         Download CV
