@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Magical Eid Wish from Yasir Sultan</title>
+
+<style>
+:root {
+  --gold: #facc15;
+  --gold-dark: #b45309;
+  --night: #020617;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at center, #0f172a, #020617);
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+
+/* 🌙 Moon */
+.moon {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 70px;
+  height: 70px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 60px var(--gold);
+  z-index: 1;
+}
+
+/* ✨ Stars */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: blink var(--duration) infinite alternate;
+}
+@keyframes blink { from { opacity: 0.1; } to { opacity: 1; } }
+
+/* 🏮 Floating Lanterns */
+.lantern {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: #ea580c;
+  border-radius: 5px;
+  box-shadow: 0 0 15px #f97316;
+  animation: float 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* 🕌 Masjid Silhouette */
+.masjid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background: #000;
+  clip-path: polygon(0% 100%, 0% 80%, 10% 80%, 15% 50%, 20% 80%, 35% 80%, 40% 30%, 45% 10%, 50% 30%, 55% 80%, 75% 80%, 80% 60%, 85% 80%, 100% 80%, 100% 100%);
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 30px;
+  border-radius: 25px;
+  border: 2px solid var(--gold);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  text-align: center;
+  outline: none;
+  backdrop-filter: blur(5px);
+}
+
+/* 💌 Envelope Container */
+.envelope-wrapper {
+  position: relative;
+  width: 300px;
+  height: 200px;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #1e293b;
+  border-radius: 0 0 10px 10px;
+  cursor: pointer;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The flap */
+.flap {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 110px solid #334155;
+  transform-origin: top;
+  transition: transform 0.6s ease;
+  z-index: 4;
+}
+
+/* Front pocket look */
+.envelope::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid #1e293b;
+  bottom: 0;
+}
+.envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 300px;
+  height: 100px;
+  background: #1e293b;
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+}
+
+/* 📜 Letter - Hidden inside */
+.letter {
+  position: absolute;
+  width: 260px;
+  height: 160px;
+  background: white;
+  left: 20px;
+  top: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #334155;
+  border-radius: 5px;
+  transition: transform 0.6s ease;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 4px solid transparent;
+  border-image: linear-gradient(to right, #b45309, #facc15, #b45309) 1;
+}
+
+.letter h3 {
+  margin-top: 0;
+  background: linear-gradient(45deg, #b45309, #facc15);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* OPEN STATE */
+.envelope-wrapper.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1; /* Move behind letter when open */
+}
+
+.envelope-wrapper.open .letter {
+  transform: translateY(-120px);
+  z-index: 5; /* Pop to the front */
+}
+
+/* Interactive Glitter Trail */
+.glitter {
+  position: fixed;
+  pointer-events: none;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+  border-radius: 50%;
+  animation: sparkle-fall 1s forwards ease-out;
+  opacity: 0;
+  z-index: 1000;
+}
+@keyframes sparkle-fall {
+  0% { transform: scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: scale(0) rotate(360deg) translateY(50px); opacity: 0; }
+}
+
+/* Explosive Particles */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  animation: explode 1s forwards ease-out;
+}
+@keyframes explode {
+  to { transform: translate(var(--x), var(--y)); opacity: 0; }
+}
+
+/* Brand Name on the Envelope */
+.brand-name {
+  font-family: 'Brush Script MT', cursive, serif;
+  font-size: 24px;
+  background: linear-gradient(to right, #b45309, #facc15, #b45309);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 5;
+  position: relative;
+  top: -20px; /* Adjusting position above pocket clip-path */
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body onmousemove="createGlitterTrail(event)">
+
+<div class="moon"></div>
+<div class="masjid"></div>
+
+<div class="wrapper">
+  <input type="text" id="name" placeholder="Type your name...">
+
+  <div class="envelope-wrapper" id="envelopeWrapper">
+    <div class="flap"></div>
+    <div class="letter">
+      <h3 id="title">Eid Mubarak!</h3>
+      <p id="message">Wishing you and your family a peaceful, joyous, and blessed Eid-ul-Fitr. May all your dreams come true.</p>
+      <div style="font-size: 20px;">🌙✨⭐</div>
+    </div>
+    <div class="envelope">
+      <div class="brand-name">Yasir Sultan</div>
+    </div>
+  </div>
+</div>
+
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+<script>
+let magicEnabled = false;
+
+// Generate Stars
+for (let i = 0; i < 80; i++) {
+  let star = document.createElement("div");
+  star.className = "star";
+  star.style.width = Math.random() * 3 + "px";
+  star.style.height = star.style.width;
+  star.style.top = Math.random() * 70 + "%";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.setProperty('--duration', (Math.random() * 3 + 1) + "s");
+  document.body.appendChild(star);
+}
+
+// Generate Lanterns
+for (let i = 0; i < 5; i++) {
+  let lantern = document.createElement("div");
+  lantern.className = "lantern";
+  lantern.style.left = (Math.random() * 90) + "%";
+  lantern.style.top = (Math.random() * 40 + 20) + "%";
+  lantern.style.animationDelay = (Math.random() * 5) + "s";
+  document.body.appendChild(lantern);
+}
+
+const wrapper = document.getElementById("envelopeWrapper");
+const music = document.getElementById("music");
+
+wrapper.addEventListener("click", () => {
+  const isOpen = wrapper.classList.toggle("open");
+  magicEnabled = isOpen; // Enable glitter trail only when open
+  
+  if(isOpen) {
+    music.play();
+    createMagicExplosion();
+    const name = document.getElementById("name").value;
+    document.getElementById("title").innerText = name ? `Eid Mubarak, ${name}!` : "Eid Mubarak!";
+  } else {
+    music.pause();
+    music.currentTime = 0;
+  }
+});
+
+function createMagicExplosion() {
+  for(let i=0; i<30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.innerHTML = ['✨','⭐','🌙','💛', '💍'][Math.floor(Math.random()*5)];
+    p.style.left = '50%';
+    p.style.top = '50%';
+    p.style.setProperty('--x', (Math.random() - 0.5) * 400 + 'px');
+    p.style.setProperty('--y', (Math.random() - 0.5) * 400 + 'px');
+    p.style.fontSize = Math.random() * 10 + 10 + 'px';
+    wrapper.appendChild(p);
+    setTimeout(() => p.remove(), 1000);
+  }
+}
+
+function createGlitterTrail(event) {
+  if(!magicEnabled) return;
+  const glitter = document.createElement('div');
+  glitter.className = 'glitter';
+  glitter.style.left = event.clientX + 'px';
+  glitter.style.top = event.clientY + 'px';
+  glitter.style.width = Math.random() * 5 + 5 + 'px';
+  glitter.style.height = glitter.style.width;
+  document.body.appendChild(glitter);
+  setTimeout(() => glitter.remove(), 1000);
+}
+</script>
+
+</body>
+</html>
