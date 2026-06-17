@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-import profilePic from "./components/yasirSultan.png";
-
-const PROFILE_IMAGE = profilePic;
+const PROFILE_IMAGE = process.env.PUBLIC_URL + "/yasirSultan.png";
 /* ─── DESIGN TOKENS ─── */
 const T = {
   bg:       "#04070a",
@@ -62,7 +60,7 @@ function useInView(threshold = 0.15) {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVis(true); }, { threshold });
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, []);
+  }, [threshold]); // ← fixed: threshold added to dependency array
   return [ref, vis];
 }
 
@@ -433,6 +431,7 @@ const PROJECTS = [
 
 function Projects() {
   const w = useWidth(); const mobile = w < 768; const tablet = w < 1100;
+
   return (
     <section id="projects" style={{ padding: mobile ? "4rem 1.25rem" : "6rem 3rem", position: "relative", zIndex: 1 }}>
       <SecLabel num={3} title="Projects" />
