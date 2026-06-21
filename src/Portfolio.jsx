@@ -291,7 +291,7 @@ function About() {
       <div ref={ref} style={{ display: "grid", gridTemplateColumns: mobile ? "1fr" : "3fr 2fr", gap: "3rem", opacity: vis ? 1 : 0, transform: vis ? "translateY(0)" : "translateY(24px)", transition: "all .7s ease .1s" }}>
         <div>
           <p style={{ fontSize: mobile ? 16 : 18, color: T.textMid, lineHeight: 1.85, marginBottom: "1.5rem" }}>
-            I'm <span style={{ color: T.text, fontWeight: 600 }}>Yasir Sultan</span>, a passionate CS student at <span style={{ color: T.accent }}>FAST-NUCES, Islamabad</span> with a strong focus on DevOps practices and modern web engineering.
+            I'm <span style={{ color: T.text, fontWeight: 600 }}>Yasir Sultan</span>, a passionate Software Engineering student at <span style={{ color: T.accent }}>FAST-NUCES, Islamabad</span> with a strong focus on DevOps practices and modern web engineering.
           </p>
           <p style={{ fontSize: mobile ? 15 : 17, color: T.textMid, lineHeight: 1.85 }}>
             I build full-stack applications and automate infrastructure — containerizing with Docker, orchestrating at scale with Kubernetes, and wiring CI/CD pipelines with GitHub Actions and Jenkins. I care deeply about writing clean, maintainable code and systems that hold up in production.
